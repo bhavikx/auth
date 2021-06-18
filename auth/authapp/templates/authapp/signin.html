@@ -1,0 +1,23 @@
+{% extends 'authapp/base.html' %}
+{% block content %}
+
+<h1>signin</h1>
+
+    <form method="POST" action="{% url 'signin' %}">{% csrf_token %}
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" value="signin">
+    </form>
+
+<hr>
+<a href="{% url 'signup' %}">signup</a>
+<hr>
+
+{% for user in users %}
+    <h3>{{user.id}} | {{user.username}} || {{user.profile.name}}</h3>
+    {% for name in names %}
+       
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

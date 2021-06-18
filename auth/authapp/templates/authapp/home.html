@@ -1,0 +1,38 @@
+{% extends 'authapp/base.html' %}
+{% block content %}
+
+☠ {{request.user}} <a href="{% url 'signout' %}">Logout</a>
+| {{name.name}}
+<h1>
+  Dashboard
+</h1>
+
+<form action="{% url 'home' %}" method="POST">{% csrf_token %}
+    <input type="text" name="proName" label="name">
+    <input type="submit" value="change name">
+</form>
+
+<!--form action="{% url 'home' %}" method="POST">{% csrf_token %}
+        {{form}}
+        <input type="submit" value="change name">
+    </form-->
+
+{% for user in users %}
+    - {{ user }}
+    <br>
+{% endfor %}
+
+{% endblock %}
+
+<script >
+
+$(document).ready(function(){
+
+$('.dis-f').click( function(){
+    console.log('lllllllll');
+    $(".p-form").css("display","block");
+    console.log("hdh");
+});
+
+});
+</script>
